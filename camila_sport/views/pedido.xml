@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="view_pedido_form" model="ir.ui.view">
+        <field name="name">com.camilasport.pedido.form</field>
+        <field name="model">com.camilasport.pedido</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="2">
+                        <field name="cliente_id"/><span/><span/>
+                        <field name="fecha_solicitud"/>
+                        <field name="fecha_entrega"/>
+                    </group>
+                    <group string="Prendas">
+                      <div>
+                        <field name="prenda_ids"/>
+                      </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- REGISTRAR PEDIDO -->
+    <record model="ir.actions.act_window" id="registrar_pedido_action">
+        <field name="name">Registrar Pedido</field>
+        <field name="res_model">com.camilasport.pedido</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="registrar_pedido_menu" name="Registrar Pedido" parent="pedido_menu" action="registrar_pedido_action"/>
+
+</odoo>
